@@ -4,15 +4,30 @@
       <ion-icon name="menu"></ion-icon>
     </button>
     <ion-title>Home</ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only (click)="addWaste()"><ion-icon name="add"></ion-icon></button>
+    </ion-buttons>
+      <ion-buttons start>
+        <button ion-button icon-only (click)="logout()"><ion-icon name="power"></ion-icon></button>
+      </ion-buttons>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-  <h3>Ionic Menu Starter</h3>
+  <ion-list no-lines>
 
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will show you the way.
-  </p>
+  <ion-item-sliding *ngFor="let waste of wastes">
 
-  <button ion-button secondary menuToggle>Toggle Menu</button>
+    <ion-item>
+      {{waste.category}}
+      {{waste.quantity}}
+    </ion-item>
+
+
+  
+  </ion-item-sliding>
+
+</ion-list>
+
+
 </ion-content>
