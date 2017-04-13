@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams,LoadingController  } from 'ionic-angular';
 import { Auth } from '../../providers/auth';
 import { HomePage } from '../home/home';
+import {Home2} from '../home2/home2';
 
 
 @IonicPage()
@@ -40,8 +41,12 @@ export class SignupPage {
 
   this.authService.createAccount(details).then((result) => {
     this.loading.dismiss();
-    console.log(result);
-    this.navCtrl.setRoot(HomePage);
+    if(this.role=="generator"){
+        this.navCtrl.setRoot(HomePage);
+    }else if(this.role=="collector"){
+        this.navCtrl.setRoot(Home2);
+    }
+
   }, (err) => {
       this.loading.dismiss();
   });

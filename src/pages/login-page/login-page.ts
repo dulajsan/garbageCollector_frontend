@@ -2,7 +2,9 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams , LoadingController} from 'ionic-angular';
 import {Auth} from '../../providers/auth';
 import {HomePage} from '../home/home';
+import {Home2} from '../home2/home2';
 import {SignupPage} from '../signup-page/signup-page';
+import {Storage} from '@ionic/storage';
 
 /**
  * Generated class for the LoginPage page.
@@ -20,8 +22,15 @@ export class LoginPage {
 email:string;
 password:string;
 loading:any;
+userReturnData:any;
+role:string;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams,public authService: Auth, public loadingCtrl: LoadingController) {
+  constructor(public navCtrl: NavController, public navParams: NavParams,public authService: Auth, public loadingCtrl: LoadingController,
+     public storage:Storage) {
+      this.storage.get('role').then((value)=>{
+        this.role=value;
+
+      });
   }
 
   //trigger as soon as the page is loaded
@@ -30,11 +39,17 @@ ionViewDidLoad() {
 
       //Check if already authenticated
       this.authService.checkAuthentication().then((res) => {
-          console.log("Already authorized");
+        //  console.log("Already authorized");
+        //console.log(this.role);
           this.loading.dismiss();
-          this.navCtrl.setRoot(HomePage);
+          if(this.role="generator"){
+              this.navCtrl.setRoot(HomePage);
+          }else if(this.role=="collector"){
+            this.navCtrl.setRoot(Home2);
+          }
+
       }, (err) => {
-          console.log("Not already authorized");
+          //console.log("Not already authorized");
           this.loading.dismiss();
       });
 
@@ -51,8 +66,17 @@ login(){
 
         this.authService.login(credentials).then((result) => {
             this.loading.dismiss();
-            console.log(result);
-            this.navCtrl.setRoot(HomePage);
+            this.userReturnData=result;
+           let type=this.userReturnData.user.role;
+           if(type=="generator"){
+             this.navCtrl.setRoot(HomePage);
+
+           }
+           else if(type=="collector"){
+             this.navCtrl.setRoot(Home2);
+
+           }
+
         }, (err) => {
             this.loading.dismiss();
             console.log(err);

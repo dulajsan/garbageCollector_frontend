@@ -4,6 +4,7 @@ import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { HttpModule } from '@angular/http';
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
+import{Home2} from '../pages/home2/home2';
 import { ListPage } from '../pages/list/list';
 import { LoginPage } from '../pages/login-page/login-page';
 import { SignupPage } from '../pages/signup-page/signup-page';
@@ -22,7 +23,8 @@ import { IonicStorageModule } from '@ionic/storage';
     HomePage,
     ListPage,
     LoginPage,
-    SignupPage
+    SignupPage,
+    Home2
   ],
   imports: [
     BrowserModule,
@@ -36,7 +38,8 @@ import { IonicStorageModule } from '@ionic/storage';
     HomePage,
     ListPage,
     LoginPage,
-    SignupPage
+    SignupPage,
+    Home2
   ],
   providers: [
     StatusBar,
