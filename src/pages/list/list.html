@@ -8,7 +8,7 @@
 </ion-header>
 
 <ion-content>
-  <ion-list>
+  <!-- <ion-list>
     <button ion-item *ngFor="let item of items" (click)="itemTapped($event, item)">
       <ion-icon [name]="item.icon" item-left></ion-icon>
       {{item.title}}
@@ -16,7 +16,19 @@
         {{item.note}}
       </div>
     </button>
-  </ion-list>
+  </ion-list> -->
+
+  <ion-list>
+  <ion-item *ngFor="let item of items" (click)="itemTapped($event, item)">
+    <ion-thumbnail item-left>
+      <img src="https://github.com/driftyco/ionic-preview-app/blob/master/src/assets/img/avatar-finn.png?raw=true">
+    </ion-thumbnail>
+    <h2>{{item.title}}</h2>
+    <p>{{item.note}}</p>
+    <button ion-button clear item-right>View</button>
+  </ion-item>
+</ion-list>
+
   <div *ngIf="selectedItem" padding>
     You navigated here from <b>{{selectedItem.title}}</b>
   </div>
