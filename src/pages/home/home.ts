@@ -12,10 +12,50 @@ export class HomePage {
 
   wastes: any;
  loading: any;
+ categories:any;
+ cat:any;
 
   constructor(public navCtrl: NavController,public wasteService: Wastes, public modalCtrl: ModalController,
     public alertCtrl: AlertController, public authService: Auth, public loadingCtrl: LoadingController) {
 
+      this.categories = [
+    {
+      'title': 'Plastic',
+      'icon': 'trash',
+      'description': 'A powerful Javascript framework for building single page apps. Angular is open source, and maintained by Google.',
+      'color': '#662e91'
+    },
+    {
+      'title': 'Metal',
+      'icon': 'trash',
+      'description': 'The latest version of cascading stylesheets - the styling language of the web!',
+      'color': '#ed1b24'
+    },
+    {
+      'title': 'Battery',
+      'icon': 'trash',
+      'description': 'The latest version of the web\'s markup language.',
+      'color': '#4d4d4d'
+    },
+    {
+      'title': 'Organic',
+      'icon': 'trash',
+      'description': 'One of the most popular programming languages on the Web!',
+      'color': '#376503'
+    },
+    {
+      'title': 'paper',
+      'icon': 'trash',
+      'description': 'One of the most popular programming languages on the Web!',
+      'color': '#ffbc01'
+    },
+    {
+      'title': 'Glass',
+      'icon': 'trash',
+      'description': 'One of the most popular programming languages on the Web!',
+      'color': '#0180f1'
+    }
+  ];
   }
 
   ionViewDidLoad(){
@@ -75,6 +115,11 @@ export class HomePage {
    });
 
    prompt.present();
+
+ }
+
+ openNavDetailsPage(category){
+   this.cat=category;
 
  }
 

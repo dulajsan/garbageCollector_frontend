@@ -1,39 +1,39 @@
 <ion-header>
 
-  <ion-navbar color="secondary">
+  <ion-navbar color="dark">
     <ion-title>Create Account</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
-<ion-content padding>
+<ion-content padding class="cnt">
 
     <ion-row class="account-form">
         <ion-col>
             <ion-list inset>
 
-              <ion-item>
+              <ion-item class="lst">
                   <ion-label><ion-icon name="mail"></ion-icon></ion-label>
                   <ion-input [(ngModel)]="name" placeholder="Name" type="text"></ion-input>
               </ion-item>
 
-                <ion-item>
+                <ion-item class="lst">
                     <ion-label><ion-icon name="mail"></ion-icon></ion-label>
                     <ion-input [(ngModel)]="email" placeholder="Email" type="email"></ion-input>
                 </ion-item>
 
-                <ion-item>
+                <ion-item class="lst">
                     <ion-label><ion-icon name="lock"></ion-icon></ion-label>
                     <ion-input [(ngModel)]="password" placeholder="Password" type="password"></ion-input>
                 </ion-item>
 
-                <ion-item>
+                <ion-item class="lst">
                     <ion-label><ion-icon name="mail"></ion-icon></ion-label>
                     <ion-input [(ngModel)]="nic" placeholder="NIC" type="text"></ion-input>
                 </ion-item>
 
-                <ion-item>
+                <ion-item class="lst">
                     <ion-label>Role</ion-label>
                     <ion-select [(ngModel)]="role">
                         <ion-option value="generator">Generator</ion-option>
@@ -41,12 +41,12 @@
                     </ion-select>
                 </ion-item>
 
-                <ion-item>
+                <ion-item class="lst">
                     <ion-label><ion-icon name="mail"></ion-icon></ion-label>
                     <ion-input [(ngModel)]="mobile" placeholder="Mobile" type="text"></ion-input>
                 </ion-item>
 
-                <ion-item>
+                <ion-item class="lst">
                     <ion-label><ion-icon name="mail"></ion-icon></ion-label>
                     <ion-input [(ngModel)]="area" placeholder="Area" type="text"></ion-input>
                 </ion-item>
