@@ -8,6 +8,8 @@ import{Home2} from '../pages/home2/home2';
 import { ListPage } from '../pages/list/list';
 import { LoginPage } from '../pages/login-page/login-page';
 import { SignupPage } from '../pages/signup-page/signup-page';
+import {MyLocation} from '../pages/my-location/my-location';
+import { Geolocation } from '@ionic-native/geolocation';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -24,7 +26,8 @@ import { IonicStorageModule } from '@ionic/storage';
     ListPage,
     LoginPage,
     SignupPage,
-    Home2
+    Home2,
+    MyLocation
   ],
   imports: [
     BrowserModule,
@@ -39,13 +42,15 @@ import { IonicStorageModule } from '@ionic/storage';
     ListPage,
     LoginPage,
     SignupPage,
-    Home2
+    Home2,
+    MyLocation
   ],
   providers: [
     StatusBar,
     SplashScreen,
     Auth,
     Wastes,
+    Geolocation,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })
