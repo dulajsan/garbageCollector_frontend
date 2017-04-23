@@ -10,7 +10,8 @@ import { LoginPage } from '../pages/login-page/login-page';
 import { SignupPage } from '../pages/signup-page/signup-page';
 import {MyLocation} from '../pages/my-location/my-location';
 import { Geolocation } from '@ionic-native/geolocation';
-import {Profile} from '../pages/profile/profile'
+import {Profile} from '../pages/profile/profile';
+import {Search} from '../pages/search/search';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -29,7 +30,8 @@ import { IonicStorageModule } from '@ionic/storage';
     SignupPage,
     Home2,
     MyLocation,
-    Profile
+    Profile,
+    Search
   ],
   imports: [
     BrowserModule,
@@ -46,7 +48,8 @@ import { IonicStorageModule } from '@ionic/storage';
     SignupPage,
     Home2,
     MyLocation,
-    Profile
+    Profile,
+    Search
   ],
   providers: [
     StatusBar,
