@@ -38,7 +38,9 @@ export class MyLocation {
     this.geolocation.getCurrentPosition().then((position) => {
 
       let latLng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
-      this.mylocation=latLng;
+      //this.mylocation=latLng;
+      //console.log(latLng);
+      this.mylocation={lat: position.coords.latitude, lng: position.coords.longitude};
 
       let mapOptions = {
         center: latLng,

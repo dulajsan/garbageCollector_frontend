@@ -49,6 +49,7 @@ export class Auth {
           this.token = data.token;
           this.storage.set('token', data.token);
           this.storage.set('role', data.user.role);
+          this.storage.set('email',data.user.email);
           resolve(data);
 
         }, (err) => {
@@ -70,10 +71,11 @@ login(credentials){
         .subscribe(res => {
 
           let data = res.json();
-          //console.log(data);
+          console.log(data);
           this.token = data.token;
           this.storage.set('token', data.token);
             this.storage.set('role', data.user.role);
+            this.storage.set('email',data.user.email);
           resolve(data);
 
           resolve(res.json());
@@ -89,6 +91,7 @@ login(credentials){
   logout(){
    this.storage.set('token', '');
      this.storage.set('role', '');
+     this.storage.set('email','');
  }
 
 
