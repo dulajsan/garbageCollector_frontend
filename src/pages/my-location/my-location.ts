@@ -1,6 +1,7 @@
 import { Component,ViewChild,ElementRef } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { Geolocation } from '@ionic-native/geolocation';
+import {Location} from '../../providers/location';
 
 
 declare var google;
@@ -22,7 +23,7 @@ export class MyLocation {
   map:any;
   mylocation:any;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams,public geolocation: Geolocation) {
+  constructor(public navCtrl: NavController, public navParams: NavParams,public geolocation: Geolocation,public locationService:Location) {
   }
 
 
@@ -31,6 +32,8 @@ export class MyLocation {
     this.initMap();
   }
 
+
+//get current location
   initMap(){
     this.geolocation.getCurrentPosition().then((position) => {
 
@@ -53,7 +56,11 @@ export class MyLocation {
 
 
 
+
+//add marker and view my lcation
   addMarker(){
+
+    this.todb(this.mylocation);
 
 let marker = new google.maps.Marker({
   map: this.map,
@@ -68,6 +75,7 @@ this.addInfoWindow(marker, content);
 }
 
 
+//show my location info in map
 addInfoWindow(marker, content){
 
 let infoWindow = new google.maps.InfoWindow({
@@ -79,5 +87,24 @@ google.maps.event.addListener(marker, 'click', () => {
 });
 
 }
+
+
+//location details to database
+todb(mylocation){
+  this.locationService.mylocation(mylocation).then((result)=>{
+    console.log("success");
+
+  },
+  (err)=>{
+    console.log("error");
+
+  }
+
+);
+
+
+}
+
+
 
 }
