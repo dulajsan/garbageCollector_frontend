@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Http,Headers } from '@angular/http';
 import 'rxjs/add/operator/map';
 import {Auth} from './auth';
+import {Storage} from '@ionic/storage';
 
 /*
   Generated class for the Wastes provider.
@@ -12,7 +13,9 @@ import {Auth} from './auth';
 @Injectable()
 export class Wastes {
 
-  constructor(public http: Http,public authService: Auth) {
+  category:any;
+
+  constructor(public http: Http,public authService: Auth,public storage:Storage) {
     console.log('Hello Wastes Provider');
   }
 
@@ -35,9 +38,40 @@ export class Wastes {
 
 }
 
+
+getcategoryDetails(category){
+
+  return new Promise((resolve,reject)=>{
+
+    this.storage.get('email').then((value) => {
+
+    let email=value;
+
+
+    let headers=new Headers();
+    headers.append('Content-Type', 'application/json');
+    headers.append('Authorization', this.authService.token);
+    //this.category={cat:category};
+    this.category={email:email,cat:category}
+    this.http.post('https://garbagecollect.herokuapp.com/api/wastes', JSON.stringify(this.category), {headers: headers})
+      .map(res => res.json())
+      .subscribe(res => {
+        resolve(res);
+      }, (err) => {
+        reject(err);
+      });
+
+  });
+});
+
+}
+
 createWaste(waste){
 
    return new Promise((resolve, reject) => {
+     this.storage.get('email').then((value) => {
+
+     let email=value;
 
      let headers = new Headers();
      headers.append('Content-Type', 'application/json');
@@ -52,6 +86,8 @@ createWaste(waste){
        });
 
    });
+
+ });
 
  }
 

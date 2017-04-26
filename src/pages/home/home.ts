@@ -13,7 +13,7 @@ export class HomePage {
   wastes: any;
  loading: any;
  categories:any;
- cat:any;
+ cat:String;
 
   constructor(public navCtrl: NavController,public wasteService: Wastes, public modalCtrl: ModalController,
     public alertCtrl: AlertController, public authService: Auth, public loadingCtrl: LoadingController) {
@@ -120,6 +120,14 @@ export class HomePage {
 
  openNavDetailsPage(category){
    this.cat=category;
+
+   this.wasteService.getcategoryDetails(this.cat).then((result) => {
+
+       console.log("success");
+   }, (err) => {
+
+       console.log("error");
+   });
 
  }
 
