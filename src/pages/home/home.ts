@@ -3,6 +3,8 @@ import { NavController,ModalController, AlertController, LoadingController  } fr
 import { Auth } from '../../providers/auth';
 import { LoginPage } from '../login-page/login-page';
 import { Wastes } from '../../providers/wastes';
+import {Catdetails} from '../catdetails/catdetails';
+import {Addwaste} from '../addwaste/addwaste';
 
 @Component({
   selector: 'page-home',
@@ -44,7 +46,7 @@ export class HomePage {
       'color': '#376503'
     },
     {
-      'title': 'paper',
+      'title': 'Paper',
       'icon': 'trash',
       'description': 'One of the most popular programming languages on the Web!',
       'color': '#ffbc01'
@@ -68,62 +70,71 @@ export class HomePage {
 
 }
 
-  addWaste(){
+ //  addWaste(){
+ //
+ //   let prompt = this.alertCtrl.create({
+ //     title: 'Add Waste',
+ //     message: 'Describe your garbage details below:',
+ //     inputs: [
+ //       {
+ //         name: 'category',
+ //         placeholder:'category'
+ //
+ //       },
+ //       {
+ //         type:'radio',
+ //         name:'quantity',
+ //         label:'Plastic',
+ //         value:'plastic'
+ //
+ //       }
+ //
+ //     ],
+ //     buttons: [
+ //       {
+ //         text: 'Cancel'
+ //       },
+ //       {
+ //         text: 'Save',
+ //         handler: waste => {
+ //
+ //               if(waste){
+ //
+ //                   this.showLoader();
+ //
+ //                   this.wasteService.createWaste(waste).then((result) => {
+ //                       this.loading.dismiss();
+ //                       this.wastes = result;
+ //                       console.log("todo created");
+ //                   }, (err) => {
+ //                       this.loading.dismiss();
+ //                       console.log("not allowed");
+ //                   });
+ //
+ //               }
+ //
+ //
+ //         }
+ //       }
+ //     ]
+ //   });
+ //
+ //   prompt.present();
+ //
+ // }
 
-   let prompt = this.alertCtrl.create({
-     title: 'Add Waste',
-     message: 'Describe your garbage details below:',
-     inputs: [
-       {
-         name: 'category',
-         placeholder:'category'
+ addWaste() {
+   this.navCtrl.push(Addwaste);
 
-       },
-       {
-         name:'quantity',
-         placeholder:'quantity'
-       }
-
-     ],
-     buttons: [
-       {
-         text: 'Cancel'
-       },
-       {
-         text: 'Save',
-         handler: waste => {
-
-               if(waste){
-
-                   this.showLoader();
-
-                   this.wasteService.createWaste(waste).then((result) => {
-                       this.loading.dismiss();
-                       this.wastes = result;
-                       console.log("todo created");
-                   }, (err) => {
-                       this.loading.dismiss();
-                       console.log("not allowed");
-                   });
-
-               }
-
-
-         }
-       }
-     ]
-   });
-
-   prompt.present();
-
- }
+  }
 
  openNavDetailsPage(category){
-   this.cat=category;
-
+   this.cat=category.title;
+  //  console.log(this.cat);
    this.wasteService.getcategoryDetails(this.cat).then((result) => {
 
        console.log("success");
+       this.navCtrl.push(Catdetails,result);
    }, (err) => {
 
        console.log("error");

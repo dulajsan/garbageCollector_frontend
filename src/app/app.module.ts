@@ -12,6 +12,8 @@ import {MyLocation} from '../pages/my-location/my-location';
 import { Geolocation } from '@ionic-native/geolocation';
 import {Profile} from '../pages/profile/profile';
 import {Search} from '../pages/search/search';
+import {Catdetails} from '../pages/catdetails/catdetails';
+import {Addwaste} from '../pages/addwaste/addwaste';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -32,7 +34,9 @@ import { IonicStorageModule } from '@ionic/storage';
     Home2,
     MyLocation,
     Profile,
-    Search
+    Search,
+    Catdetails,
+    Addwaste
   ],
   imports: [
     BrowserModule,
@@ -50,7 +54,9 @@ import { IonicStorageModule } from '@ionic/storage';
     Home2,
     MyLocation,
     Profile,
-    Search
+    Search,
+    Catdetails,
+    Addwaste
   ],
   providers: [
     StatusBar,

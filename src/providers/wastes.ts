@@ -14,6 +14,8 @@ import {Storage} from '@ionic/storage';
 export class Wastes {
 
   category:any;
+  private BASE_URI:String="http://localhost:8080/";
+//private  BASE_URI:String="https://garbagecollect.herokuapp.com/";
 
   constructor(public http: Http,public authService: Auth,public storage:Storage) {
     console.log('Hello Wastes Provider');
@@ -27,7 +29,7 @@ export class Wastes {
     let headers = new Headers();
     headers.append('Authorization', this.authService.token);
 
-    this.http.get('https://garbagecollect.herokuapp.com/api/wastes', {headers: headers})
+    this.http.get(this.BASE_URI+'api/wastes', {headers: headers})
       .map(res => res.json())
       .subscribe(data => {
         resolve(data);
@@ -53,10 +55,11 @@ getcategoryDetails(category){
     headers.append('Authorization', this.authService.token);
     //this.category={cat:category};
     this.category={email:email,cat:category}
-    this.http.post('https://garbagecollect.herokuapp.com/api/wastes', JSON.stringify(this.category), {headers: headers})
+    this.http.post(this.BASE_URI+'api/wastes/cat', JSON.stringify(this.category), {headers: headers})
       .map(res => res.json())
       .subscribe(res => {
         resolve(res);
+        //console.log(res);
       }, (err) => {
         reject(err);
       });
@@ -77,7 +80,7 @@ createWaste(waste){
      headers.append('Content-Type', 'application/json');
      headers.append('Authorization', this.authService.token);
 
-     this.http.post('https://garbagecollect.herokuapp.com/api/wastes', JSON.stringify(waste), {headers: headers})
+     this.http.post(this.BASE_URI+'api/wastes', JSON.stringify(waste), {headers: headers})
        .map(res => res.json())
        .subscribe(res => {
          resolve(res);
@@ -99,7 +102,7 @@ createWaste(waste){
          let headers = new Headers();
          headers.append('Authorization', this.authService.token);
 
-         this.http.delete('https://garbagecollect.herokuapp.com/api/wastes/' + id, {headers: headers}).subscribe((res) => {
+         this.http.delete(this.BASE_URI+'api/wastes/' + id, {headers: headers}).subscribe((res) => {
              resolve(res);
          }, (err) => {
              reject(err);

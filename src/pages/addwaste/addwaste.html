@@ -1,0 +1,54 @@
+<!--
+  Generated template for the Addwaste page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>addwaste</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+  <form>
+    <h1>Quantity</h1>
+      <ion-item>
+        <ion-label>Quantity</ion-label>
+        <ion-input type="text" [(ngModel)]="quantity" name="quantity"></ion-input>
+      </ion-item>
+      <h1>Category</h1>
+      <ion-list radio-group [(ngModel)]="category" name="category">
+          <ion-item>
+            <ion-label>Plastic</ion-label>
+            <ion-radio value="Plastic" checked></ion-radio>
+          </ion-item>
+          <ion-item>
+            <ion-label>Metal</ion-label>
+            <ion-radio value="Metal"></ion-radio>
+          </ion-item>
+          <ion-item>
+            <ion-label>Battery</ion-label>
+            <ion-radio value="Battery"></ion-radio>
+          </ion-item>
+          <ion-item>
+            <ion-label>Organic</ion-label>
+            <ion-radio value="Organic"></ion-radio>
+          </ion-item>
+          <ion-item>
+            <ion-label>Paper</ion-label>
+            <ion-radio value="Paper"></ion-radio>
+          </ion-item>
+          <ion-item>
+            <ion-label>Glass</ion-label>
+            <ion-radio value="Glass"></ion-radio>
+          </ion-item>
+    </ion-list>
+      <button ion-button block (click)="addwaste()">Add Waste</button>
+    </form>
+
+</ion-content>

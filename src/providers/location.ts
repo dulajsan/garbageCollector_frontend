@@ -13,6 +13,8 @@ import {Storage} from '@ionic/storage';
 export class Location {
 
   locationobj:any;
+  private BASE_URI:String="http://localhost:8080/";
+//private  BASE_URI:String="https://garbagecollect.herokuapp.com/";
 
   constructor(public http: Http,public storage:Storage) {
     console.log('Hello Location Provider');
@@ -30,7 +32,7 @@ export class Location {
       let headers = new Headers();
       headers.append('Content-Type', 'application/json');
 
-      this.http.post('https://garbagecollect.herokuapp.com/api/location/add', JSON.stringify(this.locationobj), {headers: headers}).subscribe(res=>{
+      this.http.post(this.BASE_URI+'api/location/add', JSON.stringify(this.locationobj), {headers: headers}).subscribe(res=>{
         let data=res.json();
         resolve(data);
 
