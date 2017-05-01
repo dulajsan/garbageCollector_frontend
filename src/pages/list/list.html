@@ -8,28 +8,19 @@
 </ion-header>
 
 <ion-content>
-  <!-- <ion-list>
-    <button ion-item *ngFor="let item of items" (click)="itemTapped($event, item)">
-      <ion-icon [name]="item.icon" item-left></ion-icon>
-      {{item.title}}
-      <div class="item-note" item-right>
-        {{item.note}}
-      </div>
-    </button>
-  </ion-list> -->
-
   <ion-list>
-  <ion-item *ngFor="let item of items" (click)="itemTapped($event, item)">
+  <ion-item *ngFor="let item of items" class="itm">
     <ion-thumbnail item-left>
       <img src="https://github.com/driftyco/ionic-preview-app/blob/master/src/assets/img/avatar-finn.png?raw=true">
     </ion-thumbnail>
-    <h2>{{item.title}}</h2>
-    <p>{{item.note}}</p>
-    <button ion-button clear item-right>View</button>
+    <h2>{{item.quantity}}kg</h2>
+    <p>{{item.category}}</p>
+      <p>{{item.user}}</p>
+    <p>profile</p>
+    <button ion-button clear item-right>Mnage</button>
+    
   </ion-item>
-</ion-list>
+  </ion-list>
 
-  <div *ngIf="selectedItem" padding>
-    You navigated here from <b>{{selectedItem.title}}</b>
-  </div>
+
 </ion-content>

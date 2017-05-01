@@ -14,6 +14,7 @@ import {Profile} from '../pages/profile/profile';
 import {Search} from '../pages/search/search';
 import {Catdetails} from '../pages/catdetails/catdetails';
 import {Addwaste} from '../pages/addwaste/addwaste';
+import {Usermap} from '../pages/usermap/usermap';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -37,7 +38,8 @@ import { IonicStorageModule } from '@ionic/storage';
     Profile,
     Search,
     Catdetails,
-    Addwaste
+    Addwaste,
+    Usermap
   ],
   imports: [
     BrowserModule,
@@ -57,7 +59,8 @@ import { IonicStorageModule } from '@ionic/storage';
     Profile,
     Search,
     Catdetails,
-    Addwaste
+    Addwaste,
+    Usermap
   ],
   providers: [
     StatusBar,

@@ -14,6 +14,7 @@ import {Storage} from '@ionic/storage';
 export class Wastes {
 
   category:any;
+  user:any;
   private BASE_URI:String="http://localhost:8080/";
 //private  BASE_URI:String="https://garbagecollect.herokuapp.com/";
 
@@ -66,6 +67,36 @@ getcategoryDetails(category){
 
   });
 });
+
+}
+
+
+getmyPost(){
+
+  return new Promise((resolve,reject)=>{
+
+    this.storage.get('email').then((value) => {
+
+    let email=value;
+
+
+    let headers=new Headers();
+    headers.append('Content-Type', 'application/json');
+    headers.append('Authorization', this.authService.token);
+    //this.category={cat:category};
+    this.user={email:email}
+    this.http.post(this.BASE_URI+'api/wastes/mypost', JSON.stringify(this.user), {headers: headers})
+      .map(res => res.json())
+      .subscribe(res => {
+        resolve(res);
+        //console.log(res);
+      }, (err) => {
+        reject(err);
+      });
+
+  });
+});
+
 
 }
 

@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams,AlertController } from 'ionic-angular';
 import {User} from '../../providers/user';
+import { Usermap } from '../usermap/usermap';
 
 /**
  * Generated class for the Catdetails page.
@@ -64,7 +65,7 @@ export class Catdetails {
       this.userService.getlocation(user).then((result) => {
 
           console.log("success location");
-          // this.navCtrl.push(Catdetails,result);
+          this.navCtrl.push(Usermap,result);
       }, (err) => {
 
           console.log("error");
