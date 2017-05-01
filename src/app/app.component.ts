@@ -10,6 +10,7 @@ import {MyLocation} from '../pages/my-location/my-location';
 import {Profile} from '../pages/profile/profile';
 import {Search} from '../pages/search/search';
 
+
 @Component({
   templateUrl: 'app.html'
 })

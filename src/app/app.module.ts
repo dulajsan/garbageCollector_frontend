@@ -21,6 +21,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import{Auth} from '../providers/auth';
 import{Wastes} from '../providers/wastes';
 import{Location} from '../providers/location';
+import {User} from '../providers/user';
 
 import { IonicStorageModule } from '@ionic/storage';
 
@@ -62,6 +63,7 @@ import { IonicStorageModule } from '@ionic/storage';
     StatusBar,
     SplashScreen,
     Auth,
+    User,
     Location,
     Wastes,
     Geolocation,

@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams,AlertController } from 'ionic-angular';
+import {User} from '../../providers/user';
 
 /**
  * Generated class for the Catdetails page.
@@ -16,7 +17,7 @@ export class Catdetails {
 
   items:any;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public alertCtrl:AlertController) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public alertCtrl:AlertController,public userService:User) {
     this.items=navParams.data;
     console.log(this.items);
 
@@ -57,8 +58,19 @@ export class Catdetails {
 
 
 
-  navigate(){
+  navigate(user){
 
-  }
+     //  console.log(this.cat);
+      this.userService.getlocation(user).then((result) => {
+
+          console.log("success location");
+          // this.navCtrl.push(Catdetails,result);
+      }, (err) => {
+
+          console.log("error");
+      });
+
+    }
+
 
 }
