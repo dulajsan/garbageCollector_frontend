@@ -6,44 +6,44 @@
 -->
 <ion-header>
 
-  <ion-navbar>
+  <ion-navbar color="dark">
     <ion-title>addwaste</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
-<ion-content padding>
+<ion-content padding class="cntnt">
 
-  <form>
+  <form class="cntnt">
     <h1>Quantity</h1>
-      <ion-item>
+      <ion-item class="cntnt">
         <ion-label>Quantity</ion-label>
         <ion-input type="text" [(ngModel)]="quantity" name="quantity"></ion-input>
       </ion-item>
       <h1>Category</h1>
-      <ion-list radio-group [(ngModel)]="category" name="category">
-          <ion-item>
+      <ion-list radio-group [(ngModel)]="category" name="category" class="cntnt">
+          <ion-item class="cntnt">
             <ion-label>Plastic</ion-label>
             <ion-radio value="Plastic" checked></ion-radio>
           </ion-item>
-          <ion-item>
+          <ion-item class="cntnt">
             <ion-label>Metal</ion-label>
             <ion-radio value="Metal"></ion-radio>
           </ion-item>
-          <ion-item>
+          <ion-item class="cntnt">
             <ion-label>Battery</ion-label>
             <ion-radio value="Battery"></ion-radio>
           </ion-item>
-          <ion-item>
+          <ion-item class="cntnt">
             <ion-label>Organic</ion-label>
             <ion-radio value="Organic"></ion-radio>
           </ion-item>
-          <ion-item>
+          <ion-item class="cntnt">
             <ion-label>Paper</ion-label>
             <ion-radio value="Paper"></ion-radio>
           </ion-item>
-          <ion-item>
+          <ion-item class="cntnt">
             <ion-label>Glass</ion-label>
             <ion-radio value="Glass"></ion-radio>
           </ion-item>

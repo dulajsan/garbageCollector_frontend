@@ -75,6 +75,7 @@ createWaste(waste){
      this.storage.get('email').then((value) => {
 
      let email=value;
+     waste.user=email;
 
      let headers = new Headers();
      headers.append('Content-Type', 'application/json');
