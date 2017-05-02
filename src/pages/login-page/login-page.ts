@@ -5,6 +5,7 @@ import {HomePage} from '../home/home';
 import {Home2} from '../home2/home2';
 import {SignupPage} from '../signup-page/signup-page';
 import {Storage} from '@ionic/storage';
+import {Front} from '../front/front';
 
 /**
  * Generated class for the LoginPage page.
@@ -43,7 +44,7 @@ ionViewDidLoad() {
         //console.log(this.role);
           this.loading.dismiss();
           if(this.role="generator"){
-              this.navCtrl.setRoot(HomePage);
+              this.navCtrl.setRoot(Front);
           }else if(this.role=="collector"){
             this.navCtrl.setRoot(Home2);
           }
@@ -69,7 +70,7 @@ login(){
             this.userReturnData=result;
            let type=this.userReturnData.user.role;
            if(type=="generator"){
-             this.navCtrl.setRoot(HomePage);
+             this.navCtrl.setRoot(Front);
 
            }
            else if(type=="collector"){

@@ -12,9 +12,7 @@ import {Addwaste} from '../addwaste/addwaste';
 })
 export class HomePage {
 
-  wastes: any;
- loading: any;
- categories:any;
+categories:any;
  cat:String;
 
   constructor(public navCtrl: NavController,public wasteService: Wastes, public modalCtrl: ModalController,
@@ -58,15 +56,13 @@ export class HomePage {
       'color': '#0180f1'
     }
   ];
+
+
   }
 
   ionViewDidLoad(){
 
- this.wasteService.getWastes().then((data) => {
-       this.wastes = data;
- }, (err) => {
-     console.log("not allowed");
- });
+
 
 }
 
@@ -123,10 +119,6 @@ export class HomePage {
  //
  // }
 
- addWaste() {
-   this.navCtrl.push(Addwaste);
-
-  }
 
  openNavDetailsPage(category){
    this.cat=category.title;
@@ -142,22 +134,5 @@ export class HomePage {
 
  }
 
- showLoader(){
-
-   this.loading = this.loadingCtrl.create({
-     content: 'Authenticating...'
-   });
-
-   this.loading.present();
-
- }
-
-
-  logout(){
-
- this.authService.logout();
- this.navCtrl.setRoot(LoginPage);
-
-}
 
 }
