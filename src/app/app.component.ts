@@ -10,6 +10,7 @@ import {MyLocation} from '../pages/my-location/my-location';
 import {Profile} from '../pages/profile/profile';
 import {Search} from '../pages/search/search';
 import {Front} from '../pages/front/front';
+import {LocationMap} from '../pages/location-map/location-map';
 
 
 @Component({
@@ -31,8 +32,10 @@ export class MyApp {
       { title: 'Categories', component: HomePage },
       { title: 'MyPosts', component: ListPage },
       {title: 'MyLocation', component:MyLocation},
-      {title:'Profile', component:Profile},
-      {title:'Search',component:Search}
+      {title:'Search',component:Search},
+      {title:'LocationMap', component:LocationMap},
+      {title:'Profile', component:Profile}
+
     ];
 
   }

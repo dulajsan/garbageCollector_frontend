@@ -15,7 +15,8 @@ import {Search} from '../pages/search/search';
 import {Catdetails} from '../pages/catdetails/catdetails';
 import {Addwaste} from '../pages/addwaste/addwaste';
 import {Usermap} from '../pages/usermap/usermap';
-import{Front} from '../pages/front/front'
+import{Front} from '../pages/front/front';
+import {LocationMap} from '../pages/location-map/location-map';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -41,7 +42,8 @@ import { IonicStorageModule } from '@ionic/storage';
     Catdetails,
     Addwaste,
     Usermap,
-    Front
+    Front,
+    LocationMap
   ],
   imports: [
     BrowserModule,
@@ -63,7 +65,8 @@ import { IonicStorageModule } from '@ionic/storage';
     Catdetails,
     Addwaste,
     Usermap,
-    Front
+    Front,
+    LocationMap
   ],
   providers: [
     StatusBar,
