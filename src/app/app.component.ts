@@ -11,6 +11,7 @@ import {Profile} from '../pages/profile/profile';
 import {Search} from '../pages/search/search';
 import {Front} from '../pages/front/front';
 import {LocationMap} from '../pages/location-map/location-map';
+import {Storage} from '@ionic/storage';
 
 
 @Component({
@@ -23,20 +24,27 @@ export class MyApp {
 
   pages: Array<{title: string, component: any}>;
 
-  constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen) {
+  constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen,public storage:Storage) {
     this.initializeApp();
 
-    // used for an example of ngFor and navigation
-    this.pages = [
-      { title: 'Home', component: Front },
-      { title: 'Categories', component: HomePage },
-      { title: 'MyPosts', component: ListPage },
-      {title: 'MyLocation', component:MyLocation},
-      {title:'Search',component:Search},
-      {title:'LocationMap', component:LocationMap},
-      {title:'Profile', component:Profile}
 
-    ];
+    // used for an example of ngFor and navigation
+    this.storage.get('role').then((value) => {
+
+
+      this.pages = [
+        { title: 'Home', component: Front },
+        { title: 'Categories', component: HomePage },
+        { title: 'MyPosts', component: ListPage },
+        {title: 'MyLocation', component:MyLocation},
+        {title:'Search',component:Search},
+          {title:'LocationMap', component:LocationMap},
+        {title:'Profile', component:Profile}
+
+      ];
+
+
+  });
 
   }
 

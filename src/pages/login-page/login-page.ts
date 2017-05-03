@@ -43,11 +43,10 @@ ionViewDidLoad() {
         //  console.log("Already authorized");
         //console.log(this.role);
           this.loading.dismiss();
-          if(this.role="generator"){
+
               this.navCtrl.setRoot(Front);
-          }else if(this.role=="collector"){
-            this.navCtrl.setRoot(Home2);
-          }
+
+
 
       }, (err) => {
           //console.log("Not already authorized");
@@ -69,14 +68,12 @@ login(){
             this.loading.dismiss();
             this.userReturnData=result;
            let type=this.userReturnData.user.role;
-           if(type=="generator"){
+
              this.navCtrl.setRoot(Front);
 
-           }
-           else if(type=="collector"){
-             this.navCtrl.setRoot(Home2);
+          
 
-           }
+
 
         }, (err) => {
             this.loading.dismiss();

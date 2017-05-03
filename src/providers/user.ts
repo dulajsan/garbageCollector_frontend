@@ -14,8 +14,8 @@ import {Storage} from '@ionic/storage';
 export class User {
 
   userdetails:any;
-  private BASE_URI:String="http://localhost:8080/";
-//private  BASE_URI:String="https://garbagecollect.herokuapp.com/";
+  // private BASE_URI:String="http://localhost:8080/";
+private  BASE_URI:String="http://139.59.68.13:8080/";
 
   constructor(public http: Http,public storage:Storage,public authService:Auth) {
     console.log('Hello User Provider');

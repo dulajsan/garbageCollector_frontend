@@ -7,15 +7,39 @@
 <ion-header>
 
   <ion-navbar color="dark">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
     <ion-title>search</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
-<ion-content padding>
-  <button ion-button>Area wise serach</button>
-  <button ion-button  (click)="categorywise()">Waste category wise</button>
-  <button ion-button>Waste quantity wise</button>
+<ion-content padding class="cnt">
+<h2>Select area</h2>
+  <ion-list>
+
+  <ion-item class="cnt">
+    <ion-label>colombo</ion-label>
+    <ion-checkbox></ion-checkbox>
+  </ion-item>
+
+  <ion-item class="cnt">
+    <ion-label>Gampaha</ion-label>
+    <ion-checkbox></ion-checkbox>
+  </ion-item>
+
+  <ion-item class="cnt">
+    <ion-label>Kalutara</ion-label>
+    <ion-checkbox></ion-checkbox>
+  </ion-item>
+
+</ion-list>
+
+<ion-list class="cnt">
+  <button ion-button block>Area wise serach</button>
+  <button ion-button block  (click)="categorywise()">Waste category wise</button>
+</ion-list>
 
 </ion-content>

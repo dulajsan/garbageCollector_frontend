@@ -7,8 +7,8 @@ import 'rxjs/add/operator/map';
 @Injectable()
 export class Auth {
   public token:any;
-  private BASE_URI:String="http://localhost:8080/";
-//private  BASE_URI:String="https://garbagecollect.herokuapp.com/";
+  // private BASE_URI:String="http://localhost:8080/";
+private  BASE_URI:String="http://139.59.68.13:8080/";
 
   constructor(public http: Http,public storage: Storage) {
     console.log('Hello Auth Provider');
@@ -50,7 +50,8 @@ export class Auth {
           let data = res.json();
           this.token = data.token;
           this.storage.set('token', data.token);
-          this.storage.set('role', data.user.role);
+          // this.storage.set('role', data.user.role);
+          window.localStorage.setItem('role',data.user.role);
           this.storage.set('email',data.user.email);
           resolve(data);
 
@@ -76,7 +77,8 @@ login(credentials){
           console.log(data);
           this.token = data.token;
           this.storage.set('token', data.token);
-            this.storage.set('role', data.user.role);
+            //this.storage.set('role', data.user.role);
+            window.localStorage.setItem('role',data.user.role);
             this.storage.set('email',data.user.email);
           resolve(data);
 
@@ -92,7 +94,7 @@ login(credentials){
 
   logout(){
    this.storage.set('token', '');
-     this.storage.set('role', '');
+     window.localStorage.setItem('role',"");
      this.storage.set('email','');
  }
 

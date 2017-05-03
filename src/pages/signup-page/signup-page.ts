@@ -45,7 +45,7 @@ export class SignupPage {
     if(this.role=="generator"){
         this.navCtrl.setRoot(Front);
     }else if(this.role=="collector"){
-        this.navCtrl.setRoot(Home2);
+        this.navCtrl.setRoot(Front);
     }
 
   }, (err) => {

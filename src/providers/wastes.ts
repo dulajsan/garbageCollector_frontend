@@ -15,8 +15,8 @@ export class Wastes {
 
   category:any;
   user:any;
-  private BASE_URI:String="http://localhost:8080/";
-//private  BASE_URI:String="https://garbagecollect.herokuapp.com/";
+  // private BASE_URI:String="http://localhost:8080/";
+private  BASE_URI:String="http://139.59.68.13:8080/";
 
   constructor(public http: Http,public authService: Auth,public storage:Storage) {
     console.log('Hello Wastes Provider');
